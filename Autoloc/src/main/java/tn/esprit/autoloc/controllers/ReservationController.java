@@ -1,4 +1,3 @@
-
 package tn.esprit.autoloc.controllers;
 
 import lombok.AllArgsConstructor;
@@ -33,5 +32,15 @@ public class ReservationController {
     @DeleteMapping("/supprimerReservation/{id}")
     public void deleteReservation(@PathVariable Long id) {
         reservationService.deleteReservation(id);
+    }
+
+    // ==========================================
+    // NOUVELLE ROUTE D'AFFECTATION
+    // ==========================================
+
+    @PutMapping("/affecterClient/{idReservation}/{idClient}")
+    public void affecterClientAReservation(@PathVariable Long idReservation, @PathVariable Long idClient) {
+        // Attention à l'ordre dans ton service : (idClient, idReservation)
+        reservationService.affecterClientAReservation(idClient, idReservation);
     }
 }

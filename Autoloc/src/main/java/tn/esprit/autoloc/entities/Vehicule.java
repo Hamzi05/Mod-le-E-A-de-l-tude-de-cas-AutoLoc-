@@ -6,6 +6,7 @@ import tn.esprit.autoloc.entities.Enumeration.CategorieVehicule;
 import tn.esprit.autoloc.entities.Enumeration.StatutVehicule;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Getter
@@ -32,4 +33,5 @@ public class Vehicule {
 
     @ManyToOne
     private Agence agence;
+    private List<Equipement> equipements;
 }

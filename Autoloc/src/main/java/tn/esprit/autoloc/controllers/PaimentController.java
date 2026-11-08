@@ -34,4 +34,8 @@ public class PaimentController {
     public void deletePaiment(@PathVariable Long id) {
         paimentService.deletePaiment(id);
     }
+    @PutMapping("/affecterContrat/{idPaiment}/{idContrat}")
+    public void affecterPaimentAContrat(@PathVariable Long idPaiment, @PathVariable Long idContrat) {
+        paimentService.affecterPaimentAContrat(idPaiment, idContrat);
+    }
 }

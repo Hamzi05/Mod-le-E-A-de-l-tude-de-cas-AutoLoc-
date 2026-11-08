@@ -13,4 +13,7 @@ public interface IContratService {
     Contrat updateContrat(Contrat contrat);
 
     void deleteContrat(Long idContrat);
+
+    void affecterPaiementAContrat(Long idPaiement, Long idContrat);
+
 }

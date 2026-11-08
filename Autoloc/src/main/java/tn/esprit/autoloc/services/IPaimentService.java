@@ -13,4 +13,5 @@ public interface IPaimentService {
     Paiment updatePaiment(Paiment paiment);
 
     void deletePaiment(Long idPaiment);
+    void affecterPaiementAContrat(Long idPaiement, Long idContrat);
 }

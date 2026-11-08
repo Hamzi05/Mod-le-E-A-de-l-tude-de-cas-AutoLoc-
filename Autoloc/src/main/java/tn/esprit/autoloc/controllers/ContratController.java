@@ -1,4 +1,3 @@
-
 package tn.esprit.autoloc.controllers;
 
 import lombok.AllArgsConstructor;
@@ -33,5 +32,11 @@ public class ContratController {
     @DeleteMapping("/supprimerContrat/{id}")
     public void deleteContrat(@PathVariable Long id) {
         contratService.deleteContrat(id);
+    }
+
+    @PutMapping("/affecterPaiment/{idContrat}/{idPaiment}")
+    public void affecterPaimentAContrat(@PathVariable Long idContrat, @PathVariable Long idPaiment) {
+        // Attention à l'ordre dans ton service : (idPaiement, idContrat)
+        contratService.affecterPaiementAContrat(idPaiment, idContrat);
     }
 }

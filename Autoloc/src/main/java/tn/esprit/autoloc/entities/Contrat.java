@@ -2,9 +2,9 @@ package tn.esprit.autoloc.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -23,4 +23,8 @@ public class Contrat {
 
     @OneToOne
     private Reservation reservation;
+
+    // ⚠️ AJOUTER CECI (Relation bidirectionnelle)
+    @OneToMany(mappedBy = "contrat")
+    private List<Paiment> paiements;
 }

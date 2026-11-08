@@ -1,4 +1,3 @@
-
 package tn.esprit.autoloc.controllers;
 
 import lombok.AllArgsConstructor;
@@ -33,5 +32,30 @@ public class VehiculeController {
     @DeleteMapping("/supprimerVehicule/{id}")
     public void deleteVehicule(@PathVariable Long id) {
         vehiculeService.deleteVehicle(id);
+    }
+
+    // ==========================================
+    // NOUVELLES ROUTES D'AFFECTATION
+    // ==========================================
+
+    @PutMapping("/affecterAgence/{idVehicule}/{idAgence}")
+    public void affecterVehiculeAAgence(@PathVariable Long idVehicule, @PathVariable Long idAgence) {
+        vehiculeService.affecterVehiculeAAgence(idVehicule, idAgence);
+    }
+
+    @PutMapping("/desaffecterAgence/{idVehicule}")
+    public void desaffecterVehiculeDAgence(@PathVariable Long idVehicule) {
+        vehiculeService.desaffecterVehiculeDAgence(idVehicule);
+    }
+
+    @PutMapping("/affecterEquipement/{idVehicule}/{idEquipement}")
+    public void affecterEquipementAVehicule(@PathVariable Long idVehicule, @PathVariable Long idEquipement) {
+        // Attention à l'ordre des paramètres dans ton service : (idEquipement, idVehicule)
+        vehiculeService.affecterEquipementAVehicule(idEquipement, idVehicule);
+    }
+
+    @PutMapping("/desaffecterEquipement/{idVehicule}/{idEquipement}")
+    public void desaffecterEquipementDeVehicule(@PathVariable Long idVehicule, @PathVariable Long idEquipement) {
+        vehiculeService.desaffecterEquipementDeVehicule(idEquipement, idVehicule);
     }
 }
